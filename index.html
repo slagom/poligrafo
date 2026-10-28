@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste do Polígrafo</title>
+  <meta name="description" content="Sistema de Teste do Polígrafo: um questionário investigativo de 10 perguntas com parecer final.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+
+    <header class="cabecalho">
+      <p class="identificacao">Caso 0417 <span>/</span> Interrogatório</p>
+      <h1>Sistema de Teste do Polígrafo</h1>
+      <p class="subtitulo">Consultor responsável: Patrick Jane. Responda com sinceridade. O traçado abaixo reage a cada resposta.</p>
+      <svg class="traco" viewBox="0 0 600 56" preserveAspectRatio="none" aria-hidden="true">
+        <line class="traco-base" x1="0" y1="28" x2="600" y2="28"/>
+        <path id="traco-linha" class="traco-linha" d="M0 28 L600 28"/>
+      </svg>
+    </header>
+
+    <section class="painel" aria-live="polite">
+
+      <!-- Etapa 1: perguntas -->
+      <div id="etapa-perguntas">
+        <div class="progresso-linha">
+          <span id="progresso-texto">Pergunta 1 de 10</span>
+          <span id="progresso-atalho">Atalhos: S para Sim, N para Não</span>
+        </div>
+        <div class="progresso-fundo">
+          <div id="progresso-barra" class="progresso-preenchido"></div>
+        </div>
+
+        <p class="rotulo">Pergunta do investigador</p>
+        <h2 id="pergunta-texto"></h2>
+
+        <div class="botoes-resposta">
+          <button type="button" class="botao botao-sim" id="botao-sim">Sim</button>
+          <button type="button" class="botao botao-nao" id="botao-nao">Não</button>
+        </div>
+      </div>
+
+      <!-- Etapa 2: finalizar -->
+      <div id="etapa-final" hidden>
+        <p class="rotulo">Interrogatório encerrado</p>
+        <h2>Todas as 10 perguntas foram respondidas.</h2>
+        <p class="subtitulo">Finalize o teste para ver o parecer.</p>
+        <div class="botoes-resposta botoes-unico">
+          <button type="button" class="botao botao-sim" id="botao-finalizar">Finalizar teste</button>
+        </div>
+      </div>
+
+      <!-- Etapa 3: resultado -->
+      <div id="etapa-resultado" class="resultado" hidden>
+        <p class="rotulo">Parecer do polígrafo</p>
+        <h2 id="classificacao" class="classificacao"></h2>
+        <p class="total-sim">Respostas "Sim": <strong id="total-sim"></strong> de 10</p>
+        <p id="mensagem-resultado" class="mensagem-resultado"></p>
+
+        <ol id="revisao" class="revisao"></ol>
+
+        <p class="aviso-legal">Projeto acadêmico, sem validade científica ou jurídica. Polígrafos reais medem respiração, pressão, suor e batimentos; este teste apenas conta respostas.</p>
+        <button type="button" class="botao botao-reiniciar" id="botao-reiniciar">Refazer o teste</button>
+      </div>
+
+    </section>
+
+    <footer class="rodape">Feito para a atividade do Sistema de Teste do Polígrafo</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

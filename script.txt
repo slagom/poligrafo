@@ -1,0 +1,54 @@
+const prompt = require("prompt-sync")();
+
+console.log("TESTE DO POLÍGRAFO");
+console.log("Responda às perguntas com apenas Sim ou Não.");
+console.log("Atenção: este teste é apenas ilustrativo, e o resultado não é totalmente confiável e não comprova se alguém é inocente ou culpado.");
+
+
+let perguntas = [
+    "Você era próximo da vítima?",
+    "Você esteve próximo a cena do crime nos últimos 10 dias?",
+    "Você sabe qual foi a arma do crime?",
+    "Você já mentiu quando era criança para não sofrer as consequências de determinadas ações?",
+    "Você já cometeu um crime anteriormente?",
+    "Você sabe onde era a casa da vítima?",
+    "Existe algo que motivaria você a cometer um crime semelhante a esse?",
+    "Você esteve no mesmo local que a vítima nos últimos 20 dias?",
+    "Você possui porte de armas?",
+    "Você conhece a família da vítima?"
+];
+
+let respostas = [];
+let respostasSim = 0;
+
+for (let i = 0; i < perguntas.length; i++) {
+    let resposta = prompt(perguntas[i] + " Sim ou Não? ");
+    respostas[i] = resposta.toLowerCase();
+}
+
+for (let i = 0; i < respostas.length; i++) {
+    if (respostas[i] === "sim") {
+        respostasSim++;
+    }
+}
+
+let classificacao;
+let mensagem;
+
+if (respostasSim < 5) {
+    classificacao = "Inocente";
+    mensagem = "Você é considerado inocente.";
+} else if (respostasSim === 5) {
+    classificacao = "Suspeito";
+    mensagem = "Você é considerado suspeito.";
+} else if (respostasSim <= 8) {
+    classificacao = "Cúmplice";
+    mensagem = "Você é considerado cúmplice.";
+} else {
+    classificacao = "Culpado";
+    mensagem = "Você é considerado culpado.";
+}
+
+console.log("Total de respostas Sim: " + respostasSim);
+console.log("Classificação: " + classificacao);
+console.log("Mensagem: " + mensagem);
