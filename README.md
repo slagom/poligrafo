@@ -1,1 +1,1 @@
-# poligrafo
+# Polígrafo
